@@ -1,0 +1,20 @@
+<html><head><meta name="viewport" content="width=device-width, initial-scale=1.0"/><script type="text/javascript" src="build/build.js"></script><link rel="stylesheet" type="text/css" href="build/build.css"/><style>body {
+  margin: 0px;
+}
+#inner_div {
+  background-color: red;
+  opacity: 0.5;
+}</style></head><body><div id="div" class="stretch-div"><img src="./wallpaper.jpg" id="img" class="stretch-div-img"/><div id="inner_div" class="stretch-inner-div"></div></div></body><script>var stdiv = require('stretch-div');
+var $ = require('jquery');
+var div = new stdiv({
+  div: "#div",
+  img: "#img"
+});
+
+div.inner({
+  div: $("#inner_div"),
+  top: 0.26,
+  left: 0.46,
+  height: 0.42,
+  width: 0.36
+})</script></html>

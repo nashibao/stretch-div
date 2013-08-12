@@ -1,0 +1,14 @@
+{
+  "name": "application-name",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node build/server.js",
+    "debug": "NODE_PATH=./:./build/apps;node-dev --debug build/server.js"
+  },
+  "devDependencies": {
+    "jade": "*"
+  },
+  "dependencies": {
+  }
+}

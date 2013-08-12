@@ -1,0 +1,32 @@
+html
+  head
+    meta(name='viewport', content='width=device-width, initial-scale=1.0') 
+    script(type="text/javascript", src="build/build.js")
+    link(rel="stylesheet", type="text/css", href="build/build.css")
+    style.
+      body {
+        margin: 0px;
+      }
+      #inner_div {
+        background-color: red;
+        opacity: 0.5;
+      }
+  body
+    div.stretch-div#div
+      img(src="./wallpaper.jpg").stretch-div-img#img
+      div.stretch-inner-div#inner_div
+  script.
+    var stdiv = require('stretch-div');
+    var $ = require('jquery');
+    var div = new stdiv({
+      div: "#div",
+      img: "#img"
+    });
+    
+    div.inner({
+      div: $("#inner_div"),
+      top: 0.26,
+      left: 0.46,
+      height: 0.42,
+      width: 0.36
+    })

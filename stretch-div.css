@@ -1,0 +1,12 @@
+.stretch-div {
+  position: absolute;
+  overflow: hidden;
+}
+.stretch-inner-div {
+  position: absolute;
+}
+.stretch-div-img {
+  position: absolute;
+  height: 100%;
+  overflow: hidden;
+}
