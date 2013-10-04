@@ -7,6 +7,9 @@ build: components index.js stretch-div.css
 components: component.json
 	@component install --dev
 
+install: components index.js
+	 component build --standalone stretch-div --out . --name stretch-div
+
 clean:
 	rm -fr build components template.js
 
