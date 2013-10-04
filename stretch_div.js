@@ -9937,5 +9937,5 @@ require.alias("stretch-div/index.js", "stretch-div/index.js");if (typeof exports
 } else if (typeof define == "function" && define.amd) {
   define(function(){ return require("stretch-div"); });
 } else {
-  this["stretch-div"] = require("stretch-div");
+  this["stretch_div"] = require("stretch-div");
 }})();
