@@ -6,6 +6,8 @@ class StretchDiv
     @div_dom = $(options.div)
     @img_dom = if options.img then $(options.img) else false
 
+    @resized = options.resized || false
+
     @inners = []
 
     @resize()
@@ -37,12 +39,46 @@ class StretchDiv
         @img_dom.offset({top: padding_top, left: padding_left})
         for inner in @inners
           div = inner.div
-          div.height(@img_dom.height() * inner.height)
-          div.width(@img_dom.width() * inner.width)
-          div.offset({left: @img_dom.width() * inner.left + padding_left, top: (@img_dom.height() * inner.top) + padding_top})
+          # base
+          if inner.base_top
+            base_top = inner.base_top.offset().top
+          else
+            base_top = padding_top
+          if inner.base_left
+            base_left = inner.base_left.offset().left
+          else
+            base_left = padding_left
+          if inner.base_height
+            base_height = inner.base_height.height()
+          else
+            base_height = @img_dom.height()
+          if inner.base_width
+            base_width = inner.base_width.width()
+          else
+            base_width = @img_dom.width()
+
+          div.offset({left: base_width * inner.left + base_left, top: (base_height * inner.top) + base_top})
+
+          if inner.height?
+            div_height = base_height * inner.height
+            div.height(div_height)
+          else if inner.bottom?
+            div.css({bottom: base_height * inner.bottom + padding_top})
+          if inner.width
+            div_width = base_width * inner.width
+            div.width(div_width)
+          else if inner.right?
+            div.css({right: base_width * inner.right + padding_left})
+            # div_height = base_height * (1 - inner.top - inner.bottom)
+            # div_width = base_width * (1 - inner.left - inner.right)
+            # div.height(div_height)
+            # div.width(div_width)
+          
       else
         @img_dom.bind "load", ()=>
           @resize()
+    if @resized
+      @resized()
 
   inner: (options={})=>
     @inners.push(options)

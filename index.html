@@ -4,7 +4,11 @@
 #inner_div {
   background-color: red;
   opacity: 0.5;
-}</style></head><body><div id="div" class="stretch-div"><img src="./wallpaper.jpg" id="img" class="stretch-div-img"/><div id="inner_div" class="stretch-inner-div"></div></div></body><script>var stdiv = require('stretch-div');
+}
+#inner_div2 {
+  background-color: blue;
+  opacity: 0.5;
+}</style></head><body><div id="div" class="stretch-div"><img src="./wallpaper.jpg" id="img" class="stretch-div-img"/><div id="inner_div" class="stretch-inner-div"></div><div id="inner_div2" class="stretch-inner-div"></div></div></body><script>var stdiv = require('stretch-div');
 var $ = require('jquery');
 var div = new stdiv({
   div: "#div",
@@ -13,8 +17,18 @@ var div = new stdiv({
 
 div.inner({
   div: $("#inner_div"),
-  top: 0.26,
-  left: 0.46,
-  height: 0.42,
-  width: 0.36
+  top: 0.2,
+  left: 0.4,
+  height: 0.4,
+  width: 0.3
+})
+
+div.inner({
+  div: $("#inner_div2"),
+  base_top: $("#div"),
+  base_left: $("#div"),
+  top: 0,
+  left: 0.1,
+  bottom: 0.1,
+  right: 0.3
 })</script></html>

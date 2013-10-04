@@ -11,10 +11,15 @@ html
         background-color: red;
         opacity: 0.5;
       }
+      #inner_div2 {
+        background-color: blue;
+        opacity: 0.5;
+      }
   body
     div.stretch-div#div
       img(src="./wallpaper.jpg").stretch-div-img#img
       div.stretch-inner-div#inner_div
+      div.stretch-inner-div#inner_div2
   script.
     var stdiv = require('stretch-div');
     var $ = require('jquery');
@@ -25,8 +30,18 @@ html
     
     div.inner({
       div: $("#inner_div"),
-      top: 0.26,
-      left: 0.46,
-      height: 0.42,
-      width: 0.36
+      top: 0.2,
+      left: 0.4,
+      height: 0.4,
+      width: 0.3
+    })
+
+    div.inner({
+      div: $("#inner_div2"),
+      base_top: $("#div"),
+      base_left: $("#div"),
+      top: 0,
+      left: 0.1,
+      bottom: 0.1,
+      right: 0.3
     })
